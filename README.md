@@ -5,3 +5,5 @@
 2, [javascript: the study note of JacaScript The Definitive Guide](https://github.com/Dragonet-D/Blog/issues/2)
 
 3, [javascript: algorithms](https://github.com/Dragonet-D/Blog/issues/3)
+
+4, [继承](https://github.com/Dragonet-D/Blog/issues/4)
