@@ -9,3 +9,5 @@
 4, [继承](https://github.com/Dragonet-D/Blog/issues/4)
 
 ## IDEA
+
+1, [webstorm: 使用规范](https://github.com/Dragonet-D/Blog/issues/5)
