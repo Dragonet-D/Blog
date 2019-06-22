@@ -1,4 +1,4 @@
-# Blog
+## JavaScript
 
 1, [javascript: get the max and the min about array](https://github.com/Dragonet-D/Blog/issues/1)
 
@@ -7,3 +7,5 @@
 3, [javascript: algorithms](https://github.com/Dragonet-D/Blog/issues/3)
 
 4, [继承](https://github.com/Dragonet-D/Blog/issues/4)
+
+## IDEA
