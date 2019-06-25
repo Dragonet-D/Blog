@@ -12,6 +12,6 @@
 
 1, [webstorm: 使用规范](https://github.com/Dragonet-D/Blog/issues/5)
 
-## 前端优化
+## 前端性能优化
 
 1, [浏览器: 重绘与回流](https://github.com/Dragonet-D/Blog/issues/6)
