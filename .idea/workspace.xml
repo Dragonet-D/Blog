@@ -33,8 +33,8 @@
         <entry file="file://$PROJECT_DIR$/doc/重绘与回流.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="448">
-                <caret line="126" column="18" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
+              <first_editor relative-caret-position="523">
+                <caret line="159" column="9" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -110,12 +110,12 @@
       <workItem from="1546322742411" duration="2577000" />
       <workItem from="1546436170963" duration="670000" />
       <workItem from="1561468391611" duration="3819000" />
-      <workItem from="1561554749111" duration="2811000" />
+      <workItem from="1561554749111" duration="4822000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9877000" />
+    <option name="totallyTimeSpent" value="11888000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="715" y="0" width="832" height="832" extended-state="0" />
@@ -165,8 +165,8 @@
     <entry file="file://$PROJECT_DIR$/doc/重绘与回流.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="448">
-            <caret line="126" column="18" selection-start-line="126" selection-start-column="18" selection-end-line="126" selection-end-column="18" />
+          <first_editor relative-caret-position="523">
+            <caret line="159" column="9" selection-start-line="159" selection-start-column="9" selection-end-line="159" selection-end-column="9" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
