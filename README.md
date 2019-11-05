@@ -10,9 +10,12 @@
 
 4, [继承](https://github.com/Dragonet-D/Blog/issues/4)
 
+5, [VUE3.0](https://github.com/Dragonet-D/Blog/issues/8)
+
 ## IDEA
 
 1, [webstorm: 使用规范](https://github.com/Dragonet-D/Blog/issues/5)
+
 2, [create react app: https](https://github.com/Dragonet-D/Blog/issues/7)
 
 ## 前端性能优化
