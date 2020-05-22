@@ -10,4 +10,22 @@
 - symbol
 - void: {null undefined}
 
-对象类型
+#### 对象类型
+
+```typscript
+type point2d = {
+  x: number
+  y: number
+}
+const center: point2d = {
+  x: 1,
+  y: 2
+}
+type httpHeader = {
+  [key string]: string | number
+}
+```
+
+#### 函数类型
+
+#### 签名
