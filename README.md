@@ -11,6 +11,7 @@
 ## TypeScript
 
 1. [数据类型](https://github.com/Dragonet-D/Blog/issues/11)
+2. [工具类型](https://github.com/Dragonet-D/Blog/issues/15)
 
 ## Tools
 
