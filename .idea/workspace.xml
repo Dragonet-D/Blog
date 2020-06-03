@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd2b6ed7-2cf4-47e4-8ae4-9676ab0fe354" name="Default Changelist" comment="" />
+    <list default="true" id="dd2b6ed7-2cf4-47e4-8ae4-9676ab0fe354" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../work/xd-mp-mini" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -40,7 +42,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Other File Types" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Users\39224\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\201.7223.93\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="SvnConfiguration">
@@ -62,7 +64,9 @@
       <workItem from="1561879448805" duration="3110000" />
       <workItem from="1561981865743" duration="605000" />
       <workItem from="1573053187160" duration="1574000" />
-      <workItem from="1590504389778" duration="1699000" />
+      <workItem from="1590504389778" duration="2064000" />
+      <workItem from="1590544168304" duration="583000" />
+      <workItem from="1590544999863" duration="634000" />
     </task>
     <servers />
   </component>
@@ -86,5 +90,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="669" y="309" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1590505561074" />
+    <state x="2660" y="116" key="FileChooserDialogImpl" timestamp="1590545979100">
+      <screen x="1920" y="-158" width="1920" height="1040" />
+    </state>
+    <state x="2660" y="116" key="FileChooserDialogImpl/0.0.1920.1040/1920.-158.1920.1040@1920.-158.1920.1040" timestamp="1590545979100" />
+    <state x="2381" y="6" key="SettingsEditor" timestamp="1590544780977">
+      <screen x="1920" y="-158" width="1920" height="1040" />
+    </state>
+    <state x="2381" y="6" key="SettingsEditor/0.0.1920.1040/1920.-158.1920.1040@1920.-158.1920.1040" timestamp="1590544780977" />
   </component>
 </project>
