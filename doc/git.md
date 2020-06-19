@@ -272,4 +272,45 @@ git stash show -p "stash@{index}"
 git diff fileName
 # 查看工作区和暂存区所有文件的对比
 git diff
+# 查看工作区和暂存区所有文件的对比,并显示出所有有差异的文件列表
+git diff --stat
+```
+1, 你修改了某个文件, 但是没有提交到暂存区,这时候会有对比的内容,一旦提交到暂存区,就不会有对比的内容(因为暂存区已经更新)
+2, 如果你新建了一个文件,但是没有提交到暂存区,这时候diff是没有结果的
+
+```shell script
+# 查看暂存区与上次提交到本地仓库的快照(即最新提交到本地仓库的快照)的对比
+git diff --cached/--staged
+# 查看工作区与上次提交到本地仓库的快照(即最新提交到本地仓库的快照)的对比
+git diff branchName
+# 查看工作区与HEAD指向(默认当前分支最新的提交)的对比
+git diff HEAD
+```
+
+```shell script
+# 查看两个本地分支中某一个文件的对比
+git diff branchName .. branchName fileName
+# 查看两个本地分支所有的对比
+git diff branchName .. branchName
+# 查看远程分支和本地分支的对比
+git diff origin/branchName .. branchName
+# 查看远程分支和远程分支的对比
+git diff origin/branchName..origin/branchName
+```
+
+```shell script
+# 查看两个commit的对比
+git diff commit1..commit2
+```
+
+## remote
+```shell script
+# 查看所有远程主机
+git remote
+# 查看关联的远程仓库的详细信息
+git remote -v
+# 删除远程仓库的"关联"
+git remote rm projectName
+# 设置远程仓库的"关联"
+git remote set-url origin <newUrl>
 ```
