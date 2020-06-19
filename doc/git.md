@@ -314,3 +314,37 @@ git remote rm projectName
 # 设置远程仓库的"关联"
 git remote set-url origin <newUrl>
 ```
+## tag
+```shell script
+# 默认在 HEAD 上创建一个标签
+git tag v1.0
+# 指定一个 commit id 创建一个标签
+git tag v0.9 f52c633
+# 穿件带有说明的标签, 用-a 指定标签名, -m 指定说明文字
+git tag -a v0.1 -m "version 0.1 released"
+# 查看所有标签
+# 注意: 标签不是按时间顺序列出, 而是按字母顺序的
+git tag
+# 查看单个标签的具体信息
+git show <tagname>
+# 推送一个本地标签
+git push origin <tagname>
+# 推送全部未推送过的本地标签
+git push origin --tags
+
+# 删除本地标签
+# 因为创建的标签都只储存在本地, 不会自动推送到远程
+# 所以,打错的标签可以在本地安全删除
+git tag -d v0.1
+# 删除一个远程标签(先删除本地tag, 然后再删除远程tag)
+git push origin :refs/tags/tagname
+```
+## 删除文件
+```shell script
+# 删除暂存区和工作区的文件
+git rm filename
+# 只删除暂存区的文件,不会删除工作区的文件
+git rm --cached filename
+```
+如果在配置.gitignore文件之前就把某个文件上传到远程仓库了,这时候想把远程仓库中的该文件删除,此时你配置.gitignore文件也没有用,因为改文件已经被追踪了,但又不想在本地删除该文件后重新提交到远程仓库,这时候可以使用 git rm --cached filename命令取消该文件的追踪,这样下次提交的时候,git就不会再提交这个文件,从而远程仓库的该文件也会被删除
+
