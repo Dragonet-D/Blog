@@ -264,3 +264,12 @@ git stash show "stash@{index}"
 # 查看当前记录中修改了哪些文件的内容
 git stash show -p "stash@{index}"
 ```
+
+## diff
+
+```shell script
+# 查看工作区和暂存区单个文件的对比
+git diff fileName
+# 查看工作区和暂存区所有文件的对比
+git diff
+```
