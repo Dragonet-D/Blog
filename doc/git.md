@@ -385,3 +385,23 @@ git checkout <tag>
 - 哪怕你切换到了某一个版本的提交, 并且对它做了修改后, 不小心提交到了暂存区,只要你切换回分支的时候,依然会回到项目的初始状态. (注意: 你所做的修改, 如果commit了, 会被保存到那个版本中. 切换完分支后, 会提示可以新建一个临时分支, 然后你本地自己的开发主分支去合并它, 合并完后删除临时分支)
 
 - 一般工checkout 回退版本, 查看历史代码, 测试bug 在哪
+
+## reset 详解
+git reset [--hard|soft|mixed|merge|keep] [<commit>或HEAD]: 将当前的分支重设(reset)到指定的<commit>或者HEAD(默认, 如果不显示指定<commit>, 默认是 HEAD, 即最新的一次提交), 并且根据[mode]有可能的索引和工作目录. mode 的取值可以是hard, soft, mixed, merged, keep
+
+```shell script
+# 从暂存区撤销特定文件, 但不改变工作区. 它会取消这个文件的暂存,而不是覆盖任何更改
+git reset <fileName>
+# 重置暂存区最近的一次提交,但工作区的文件不变
+git reset
+# 等价于
+git reset HEAD (默认)
+# 重置暂存区与工作区,回退到最近一次提交的版本内容
+git reset --hard
+# 重置暂存与工作区,回退到最近一次提交的上一个版本
+git reset --hard HEAD^
+# 将当前分支的指针指向指定 commit (该提交之后的提交都会被移除), 同时重置暂存区, 但工作区不变
+git reset <commit>
+# 等价于
+git reset --mixed <commit>
+```
