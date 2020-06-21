@@ -437,10 +437,50 @@ git revert <commit_id> --no-edit
 - 因为两个命令的目的不同，它们的实现也不一样：重设完全地移除了一堆更改，而撤销保留了原来的更改，用一个新的提交来实现撤销。千万不要用 git reset 回退已经被推送到公共仓库上的 提交，它只适用于回退本地修改（从未提交到公共仓库中）。如果你需要修复一个公共提交，最好使用 git revert。
 - 发布一个提交之后，你必须假设其他开发者会依赖于它。移除一个其他团队成员在上面继续开发的提交在协作时会引发严重的问题。当他们试着和你的仓库同步时，他们会发现项目历史的一部分突然消失了。一旦你在重设之后又增加了新的提交，Git 会认为你的本地历史已经和 origin/master 分叉了，同步你的仓库时的合并提交(merge commit)会使你的同事困惑。
 
+## cherry-pick
+将指定提交 commit 应用于当前分支 (可用于恢复不小心撤销(revert/reset) 的提交)
 
+```shell script
+git cherry-pick <commit_id>
+git cherry-pick <commit_id> <commit_id>
+git cherry-pick <commit_id>^...<commit_id>
+```
 
+## git submodule 子模块
+有种情况我们经常会遇到: 某个工作中的项目需要包含并使用另一个项目,也许是第三方库,或者你是独立开发的.多用于父项目的库.现在问题来了: 你想要把它们当做两个独立的项目,但是同时又想在一个项目中使用另一个. 如果将另外一个项目中的代码复制到自己的项目中, 那么你做的任何自定义修改都会使合并上游的改动变得困难.git通过子模块来解决这个问题, 允许你将一个Git仓库为另一个Git仓库的子目录,它能让你将另一个仓库克隆到自己的项目中, 同事还保持提交的独立;
 
+```shell script
+# 在项目中添加子项目, URL 为子模块的路径, path为该子模块存储的目录路径
+git submodule add [URL] [Path]
 
+# 克隆这样的项目时, 默认会包含该子项目的目录, 但该目录中还没有任何文件
+# 初始化本地配置文件
+git submodule init
+# 从当前项目中抓取所有数据并检出父项目中列出的合适的提交
+git submodule update
+# 等价于 git submodule init && git submodule update
+git submodule update --init
+
+# 自动初始化并更新仓库中的每一个子模块, 包括可能存在的嵌套模块
+git clone --recurse-submodules [URL]
+```
+
+## 常见问题
+
+#### 1, 拉取别人的远程分支合并后，git 会存取这个拉取的记录，如果你不小心删了别人的上传的文件，这时候想要再拉取别人的分支是没用的，会显示 already-up
+这时候可以回滚代码, 重新拉取
+
+#### 2, 以前有过这样的经历：前后端、客户端的代码都存放在一个 git 仓库中，在根目录下各自新建项目目录。那么可以直接在自己的项目目录下使用 git 提交代码并且在各自的项目目录下配置 .gitignore 文件，不用在根目录下配置 .gitignore 文件，这样就互不影响了
+
+#### 3, fatal: refusing to merge unrelated histories 拒绝合并不相关的历史
+在 git 2.9.2 之后，不可以合并没有相同结点的分支（分支之间自仓库建立后，从来没有过互相拉取合并）。如果需要合并两个不同结点的分支，如下：
+ ```shell script
+git pull origin branchName --allow-unrelated-histories
+git merge branchName --allow-unrelated-histories
+```
+这个功能是可以让大家不要把仓库上传错了，如果会加上这个代码，那么就是自己确定了上传。旧版本的 Git 很容易就把代码传错了，现在可以看到，如果上传的不是之前的，那么就需要加代码上传。
+正常情况下，都是先建立仓库，然后切多个分支，分支先去拉取合并主分支的内容，然后再各自开发，
+如果建立仓库后，各个分支没有区拉取主分支的代码，之后各个分支之间想要合并时就会报错。
 
 
 
