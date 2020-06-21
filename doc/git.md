@@ -482,9 +482,39 @@ git merge branchName --allow-unrelated-histories
 正常情况下，都是先建立仓库，然后切多个分支，分支先去拉取合并主分支的内容，然后再各自开发，
 如果建立仓库后，各个分支没有区拉取主分支的代码，之后各个分支之间想要合并时就会报错。
 
+#### 4、合并分支时出现问题，想要解除合并状态
+```git
+error: merge is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+```
+当远程分支和本地分支发生冲突后，git 保持合并状态，你如果没有去解决完所有的冲突，那么 git 会一直保持这个状态，你就无法再提交代码。只有先解除合并状态后，才能继续提交。执行命令前最好先备份一下，有可能本地做的修改会被远程分支覆盖掉。
 
+```git
+# 解除合并状态
+git merge --abort
+```
 
+#### 5、不小心把某些文件上传到远程 git 仓库/想要删除远程仓库中的文件
+```git
+# 删除暂存区和工作区的文件
+$ git rm filename  
+# 只删除暂存区的文件，不会删除工作区的文件
+$ git rm --cached filename 
+```
 
+#### 6、将本地新建的项目上传到新建的远程仓库上
+```git 
+# 将本地仓库和远程仓库关联起来
+$ git remote add origin 远程仓库地址
+# 将本地的 master 分支推送到 origin 主机，同时指定 origin 为默认主机
+$ git push -u origin master
+# 上面的命名执行后，下次再从本地库上传内容的时候只需下面这样就可以了
+$ git push
+```
+#### 7, git merge --no-ff 的作用
+从合并后的代码来看，结果都是一样的，区别就在于 --no-ff 会让 git 生成一个新的提交对象。为什么要这样？通常我们把 master 作为主分支，上面存放的都是比较稳定的代码，提交频率也很低，而 feature 是用来开发特性的，上面会存在许多零碎的提交，快进式合并会把 feature 的提交历史混入到 master 中，搅乱 master 的提交历史。所以如果你根本不在意提交历史，也不爱管 master 干不干净，那么 --no-ff 其实没什么用。
 
 
 
