@@ -16,7 +16,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1804b2df-c6b4-42cc-b2c5-41fbad324a8b" name="Default Changelist" comment="" />
+    <list default="true" id="1804b2df-c6b4-42cc-b2c5-41fbad324a8b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/doc/git.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/git.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,10 +43,6 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
-                  <RecentBranch>
-                    <option name="branchName" value="test1" />
-                    <option name="lastUsedInstant" value="1592839254" />
-                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="blog" />
                     <option name="lastUsedInstant" value="1592582421" />
@@ -86,7 +84,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="ts.external.directory.path" value="C:\Users\39224\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\201.7846.79\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="SvnConfiguration">
@@ -117,11 +115,7 @@
       <workItem from="1592622845910" duration="2783000" />
       <workItem from="1592633853052" duration="156000" />
       <workItem from="1592634034882" duration="75000" />
-      <workItem from="1592705820937" duration="7067000" />
-      <workItem from="1592722136479" duration="208000" />
-      <workItem from="1592722361835" duration="1117000" />
-      <workItem from="1592724533593" duration="2363000" />
-      <workItem from="1592836780339" duration="2235000" />
+      <workItem from="1592705820937" duration="6519000" />
     </task>
     <servers />
   </component>
@@ -161,13 +155,12 @@
       <screen x="1920" y="-158" width="1920" height="1040" />
     </state>
     <state x="2660" y="116" key="FileChooserDialogImpl/0.0.1920.1040/1920.-158.1920.1040@1920.-158.1920.1040" timestamp="1590545979100" />
-    <state x="346" y="153" key="SettingsEditor" timestamp="1592725755942">
-      <screen x="0" y="23" width="1440" height="852" />
+    <state x="346" y="142" key="SettingsEditor" timestamp="1592622931914">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="346" y="142" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1592723622429" />
+    <state x="346" y="142" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1592622931914" />
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.-158.1920.1040@0.0.1920.1040" timestamp="1592297280720" />
     <state x="2381" y="6" key="SettingsEditor/0.0.1920.1040/1920.-158.1920.1040@1920.-158.1920.1040" timestamp="1592297321780" />
-    <state x="346" y="153" key="SettingsEditor/0.23.1440.852@0.23.1440.852" timestamp="1592725755942" />
     <state x="869" y="367" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592587027982">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
