@@ -54,3 +54,4 @@ function controlFlowAnalysisWithNever(foo: Foo) {
   }
 }
 ```
+## 断言
