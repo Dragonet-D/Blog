@@ -516,7 +516,19 @@ $ git push
 #### 7, git merge --no-ff 的作用
 从合并后的代码来看，结果都是一样的，区别就在于 --no-ff 会让 git 生成一个新的提交对象。为什么要这样？通常我们把 master 作为主分支，上面存放的都是比较稳定的代码，提交频率也很低，而 feature 是用来开发特性的，上面会存在许多零碎的提交，快进式合并会把 feature 的提交历史混入到 master 中，搅乱 master 的提交历史。所以如果你根本不在意提交历史，也不爱管 master 干不干净，那么 --no-ff 其实没什么用。
 
-
+#### 8, git --depth=1 之后获取其他分支
+- 1. 先转换储存库为完整储存库
+```shell script
+git pull --unshallow 
+# 或者
+git fetch --unshallow
+```
+```shell script
+# 2
+git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+# 3
+git fetch -pv
+```
 
 
 
