@@ -272,4 +272,270 @@ git stash show -p "stash@{index}"
 git diff fileName
 # 查看工作区和暂存区所有文件的对比
 git diff
+# 查看工作区和暂存区所有文件的对比,并显示出所有有差异的文件列表
+git diff --stat
 ```
+1, 你修改了某个文件, 但是没有提交到暂存区,这时候会有对比的内容,一旦提交到暂存区,就不会有对比的内容(因为暂存区已经更新)
+2, 如果你新建了一个文件,但是没有提交到暂存区,这时候diff是没有结果的
+
+```shell script
+# 查看暂存区与上次提交到本地仓库的快照(即最新提交到本地仓库的快照)的对比
+git diff --cached/--staged
+# 查看工作区与上次提交到本地仓库的快照(即最新提交到本地仓库的快照)的对比
+git diff branchName
+# 查看工作区与HEAD指向(默认当前分支最新的提交)的对比
+git diff HEAD
+```
+
+```shell script
+# 查看两个本地分支中某一个文件的对比
+git diff branchName .. branchName fileName
+# 查看两个本地分支所有的对比
+git diff branchName .. branchName
+# 查看远程分支和本地分支的对比
+git diff origin/branchName .. branchName
+# 查看远程分支和远程分支的对比
+git diff origin/branchName..origin/branchName
+```
+
+```shell script
+# 查看两个commit的对比
+git diff commit1..commit2
+```
+
+## remote
+```shell script
+# 查看所有远程主机
+git remote
+# 查看关联的远程仓库的详细信息
+git remote -v
+# 删除远程仓库的"关联"
+git remote rm projectName
+# 设置远程仓库的"关联"
+git remote set-url origin <newUrl>
+```
+## tag
+```shell script
+# 默认在 HEAD 上创建一个标签
+git tag v1.0
+# 指定一个 commit id 创建一个标签
+git tag v0.9 f52c633
+# 穿件带有说明的标签, 用-a 指定标签名, -m 指定说明文字
+git tag -a v0.1 -m "version 0.1 released"
+# 查看所有标签
+# 注意: 标签不是按时间顺序列出, 而是按字母顺序的
+git tag
+# 查看单个标签的具体信息
+git show <tagname>
+# 推送一个本地标签
+git push origin <tagname>
+# 推送全部未推送过的本地标签
+git push origin --tags
+
+# 删除本地标签
+# 因为创建的标签都只储存在本地, 不会自动推送到远程
+# 所以,打错的标签可以在本地安全删除
+git tag -d v0.1
+# 删除一个远程标签(先删除本地tag, 然后再删除远程tag)
+git push origin :refs/tags/tagname
+```
+## 删除文件
+```shell script
+# 删除暂存区和工作区的文件
+git rm filename
+# 只删除暂存区的文件,不会删除工作区的文件
+git rm --cached filename
+```
+如果在配置.gitignore文件之前就把某个文件上传到远程仓库了,这时候想把远程仓库中的该文件删除,此时你配置.gitignore文件也没有用,因为改文件已经被追踪了,但又不想在本地删除该文件后重新提交到远程仓库,这时候可以使用 git rm --cached filename命令取消该文件的追踪,这样下次提交的时候,git就不会再提交这个文件,从而远程仓库的该文件也会被删除
+
+## 版本切换 & 重设 & 撤销
+- checkout 可以撤销工作区的文件, reset 可以撤销工作区/暂存区的文件
+- reset 和 checkout可以作用于commit或者文件,revert只能作用于commit
+
+## checkout详解
+```shell script
+# 恢复暂存区的指定文件到工作区
+git checkout <filename>
+# 恢复暂存区的所有文件到工作区
+git checkout .
+
+# 回滚到最近的一次提交
+# 如果修改某些文件后, 没有提交到暂存区, 此时的回滚是回滚到上一次提交
+# 如果是已经将修改的文件提交到仓库了,这时再用这个命令回滚无效
+# 因为回滚到的是之前自己修改后提交的版本
+git checkout HEAD
+git checkout HEAD -- filename
+# 回滚到最近一次提交的上1个版本
+git checkout HEAD^
+# 回滚到最近一次提交的上2个版本
+git checkout HEAD^^
+
+# 切换分支, 在这里也可以看做是回到项目 当前 状态的方式
+git checkout <当前正在使用的分支>
+
+# 切换到某个指定的 commit 版本
+git checkout <commit id>
+# 切换指定tag
+git checkout <tag>
+```
+- 在开发的正常阶段, HEAD 一般指向master或是其他的本地分支,但当你使用git checkout <commit id>切换到指定的某一次提交的时候, HEAD就不再指向一个分支了---它直接指向一个提交,HEAD就会处于detached状态(游离状态)
+
+- 切换到某一次提交后, 你可以查看文件, 编译项目, 运行测试, 甚至编辑文件而不需要考虑是否会影响项目的当前状态, 你所做的一切都不会被保存到主栈的仓库中. 当你想要回到主线继续开发时, 使用 git checkout branchName 回到项目初始的状态(这时候会提示你是否需要新建一条分支用于保留刚才的修改).
+
+- 哪怕你切换到了某一个版本的提交, 并且对它做了修改后, 不小心提交到了暂存区,只要你切换回分支的时候,依然会回到项目的初始状态. (注意: 你所做的修改, 如果commit了, 会被保存到那个版本中. 切换完分支后, 会提示可以新建一个临时分支, 然后你本地自己的开发主分支去合并它, 合并完后删除临时分支)
+
+- 一般工checkout 回退版本, 查看历史代码, 测试bug 在哪
+
+## reset 详解
+git reset [--hard|soft|mixed|merge|keep] [<commit>或HEAD]: 将当前的分支重设(reset)到指定的<commit>或者HEAD(默认, 如果不显示指定<commit>, 默认是 HEAD, 即最新的一次提交), 并且根据[mode]有可能的索引和工作目录. mode 的取值可以是hard, soft, mixed, merged, keep
+
+```shell script
+# 从暂存区撤销特定文件, 但不改变工作区. 它会取消这个文件的暂存,而不是覆盖任何更改
+git reset <fileName>
+# 重置暂存区最近的一次提交,但工作区的文件不变
+git reset
+# 等价于
+git reset HEAD (默认)
+# 重置暂存区与工作区,回退到最近一次提交的版本内容
+git reset --hard
+# 重置暂存与工作区,回退到最近一次提交的上一个版本
+git reset --hard HEAD^
+# 将当前分支的指针指向指定 commit (该提交之后的提交都会被移除), 同时重置暂存区, 但工作区不变
+git reset <commit>
+# 等价于
+git reset --mixed <commit>
+# 将当前分支的指针指向为指定commit(提交之后的提交都会被移除), 但保持暂存区和工作区不变
+git reset --soft <commit>
+# 将当前分支指向为指定 commit (该提交之后都会被移除), 同时重置暂存区, 工作区
+git reset --hard <commit> 
+```
+- git reset 有很多种用法。它可以被用来移除提交快照，尽管它通常被用来撤销暂存区和工作区的修改。不管是哪种情况，它应该只被用于本地修改——你永远不应该重设和其他开发者共享的快照。
+- 当你用 reset 回滚到了某个版本后，那么在下一次 git 提交时，之前该版本后面的版本会被作为垃圾删掉。
+- 当我们回退到一个旧版本后，此时再用 git log 查看提交记录，会发现之前的新版本记录没有了。如果第二天，你又想恢复到新版本怎么办？找不到新版本的 commit_id 怎么办？
+
+我们可以用 git reflog 查看历史命令，这样就可以看到之前新版本的 commit_id ，然后 git reset --hard commit_id 就可以回到之前的新版本代码
+- 虽然可以用 git reflog 查看本地历史，然后回复到之前的新版本代码，但是在别的电脑上是无法获取你的历史命令的，所以这种方法不安全。万一你的电脑突然坏了，这时候就无法回到未来的版本。
+
+## revert 详解
+```shell script
+# 生成一个撤销最近一次提交的新提交的新提交
+git revert HEAD
+# 生成一个撤销最近一次提交的上一次提交的新提交
+git revert HEAD^
+# 生成一个撤销最近一次提交的上两次提交的新提交
+git revert HEAD^^
+# 生成一个撤销最近一次提交的上n次提交的新提交
+git revert HEAD~num
+# 生成一个撤销指定提交版本的新提交
+git revert <commit_id>
+# 生成一个撤销指定提交版本的新提交，执行时不打开默认编辑器，直接使用 Git 自动生成的提交信息
+git revert <commit_id> --no-edit
+```
+- git revert命令用来撤销某个已经提交的快照（和 reset 重置到某个指定版本不一样）。它是在提交记录最后面加上一个撤销了更改的新提交，而不是从项目历史中移除这个提交，这避免了 Git 丢失项目历史。
+- 撤销（revert）应该用在你想要在项目历史中移除某个提交的时候。比如说，你在追踪一个 bug，然后你发现它是由一个提交造成的，这时候撤销就很有用。
+- 撤销（revert）被设计为撤销公共提交的安全方式，重设（reset）被设计为重设本地更改。
+- 因为两个命令的目的不同，它们的实现也不一样：重设完全地移除了一堆更改，而撤销保留了原来的更改，用一个新的提交来实现撤销。千万不要用 git reset 回退已经被推送到公共仓库上的 提交，它只适用于回退本地修改（从未提交到公共仓库中）。如果你需要修复一个公共提交，最好使用 git revert。
+- 发布一个提交之后，你必须假设其他开发者会依赖于它。移除一个其他团队成员在上面继续开发的提交在协作时会引发严重的问题。当他们试着和你的仓库同步时，他们会发现项目历史的一部分突然消失了。一旦你在重设之后又增加了新的提交，Git 会认为你的本地历史已经和 origin/master 分叉了，同步你的仓库时的合并提交(merge commit)会使你的同事困惑。
+
+## cherry-pick
+将指定提交 commit 应用于当前分支 (可用于恢复不小心撤销(revert/reset) 的提交)
+
+```shell script
+git cherry-pick <commit_id>
+git cherry-pick <commit_id> <commit_id>
+git cherry-pick <commit_id>^...<commit_id>
+```
+
+## git submodule 子模块
+有种情况我们经常会遇到: 某个工作中的项目需要包含并使用另一个项目,也许是第三方库,或者你是独立开发的.多用于父项目的库.现在问题来了: 你想要把它们当做两个独立的项目,但是同时又想在一个项目中使用另一个. 如果将另外一个项目中的代码复制到自己的项目中, 那么你做的任何自定义修改都会使合并上游的改动变得困难.git通过子模块来解决这个问题, 允许你将一个Git仓库为另一个Git仓库的子目录,它能让你将另一个仓库克隆到自己的项目中, 同事还保持提交的独立;
+
+```shell script
+# 在项目中添加子项目, URL 为子模块的路径, path为该子模块存储的目录路径
+git submodule add [URL] [Path]
+
+# 克隆这样的项目时, 默认会包含该子项目的目录, 但该目录中还没有任何文件
+# 初始化本地配置文件
+git submodule init
+# 从当前项目中抓取所有数据并检出父项目中列出的合适的提交
+git submodule update
+# 等价于 git submodule init && git submodule update
+git submodule update --init
+
+# 自动初始化并更新仓库中的每一个子模块, 包括可能存在的嵌套模块
+git clone --recurse-submodules [URL]
+```
+
+## 常见问题
+
+#### 1, 拉取别人的远程分支合并后，git 会存取这个拉取的记录，如果你不小心删了别人的上传的文件，这时候想要再拉取别人的分支是没用的，会显示 already-up
+这时候可以回滚代码, 重新拉取
+
+#### 2, 以前有过这样的经历：前后端、客户端的代码都存放在一个 git 仓库中，在根目录下各自新建项目目录。那么可以直接在自己的项目目录下使用 git 提交代码并且在各自的项目目录下配置 .gitignore 文件，不用在根目录下配置 .gitignore 文件，这样就互不影响了
+
+#### 3, fatal: refusing to merge unrelated histories 拒绝合并不相关的历史
+在 git 2.9.2 之后，不可以合并没有相同结点的分支（分支之间自仓库建立后，从来没有过互相拉取合并）。如果需要合并两个不同结点的分支，如下：
+ ```shell script
+git pull origin branchName --allow-unrelated-histories
+git merge branchName --allow-unrelated-histories
+```
+这个功能是可以让大家不要把仓库上传错了，如果会加上这个代码，那么就是自己确定了上传。旧版本的 Git 很容易就把代码传错了，现在可以看到，如果上传的不是之前的，那么就需要加代码上传。
+正常情况下，都是先建立仓库，然后切多个分支，分支先去拉取合并主分支的内容，然后再各自开发，
+如果建立仓库后，各个分支没有区拉取主分支的代码，之后各个分支之间想要合并时就会报错。
+
+#### 4、合并分支时出现问题，想要解除合并状态
+```git
+error: merge is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+```
+当远程分支和本地分支发生冲突后，git 保持合并状态，你如果没有去解决完所有的冲突，那么 git 会一直保持这个状态，你就无法再提交代码。只有先解除合并状态后，才能继续提交。执行命令前最好先备份一下，有可能本地做的修改会被远程分支覆盖掉。
+
+```git
+# 解除合并状态
+git merge --abort
+```
+
+#### 5、不小心把某些文件上传到远程 git 仓库/想要删除远程仓库中的文件
+```git
+# 删除暂存区和工作区的文件
+$ git rm filename  
+# 只删除暂存区的文件，不会删除工作区的文件
+$ git rm --cached filename 
+```
+
+#### 6、将本地新建的项目上传到新建的远程仓库上
+```git 
+# 将本地仓库和远程仓库关联起来
+$ git remote add origin 远程仓库地址
+# 将本地的 master 分支推送到 origin 主机，同时指定 origin 为默认主机
+$ git push -u origin master
+# 上面的命名执行后，下次再从本地库上传内容的时候只需下面这样就可以了
+$ git push
+```
+#### 7, git merge --no-ff 的作用
+从合并后的代码来看，结果都是一样的，区别就在于 --no-ff 会让 git 生成一个新的提交对象。为什么要这样？通常我们把 master 作为主分支，上面存放的都是比较稳定的代码，提交频率也很低，而 feature 是用来开发特性的，上面会存在许多零碎的提交，快进式合并会把 feature 的提交历史混入到 master 中，搅乱 master 的提交历史。所以如果你根本不在意提交历史，也不爱管 master 干不干净，那么 --no-ff 其实没什么用。
+
+#### 8, git --depth=1 之后获取其他分支
+- 1. 先转换储存库为完整储存库
+```shell script
+git pull --unshallow 
+# 或者
+git fetch --unshallow
+```
+```shell script
+# 2
+git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+# 3
+git fetch -pv
+```
+
+
+
+
+
+
+
+
+
+

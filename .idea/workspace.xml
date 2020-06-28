@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd2b6ed7-2cf4-47e4-8ae4-9676ab0fe354" name="Default Changelist" comment="" />
+    <list default="true" id="1804b2df-c6b4-42cc-b2c5-41fbad324a8b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +34,31 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="blog" />
+                    <option name="lastUsedInstant" value="1592582421" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1592582420" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="ProjectId" id="1TFQ5YQmE9Qru7uAM7X8lZuJFQI" />
   <component name="ProjectLevelVcsManager">
@@ -42,7 +84,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="ts.external.directory.path" value="C:\Users\39224\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\201.7846.79\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="SvnConfiguration">
@@ -50,7 +92,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dd2b6ed7-2cf4-47e4-8ae4-9676ab0fe354" name="Default Changelist" comment="" />
+      <changelist id="1804b2df-c6b4-42cc-b2c5-41fbad324a8b" name="Default Changelist" comment="" />
       <created>1546322740848</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -69,6 +111,12 @@
       <workItem from="1590544999863" duration="634000" />
       <workItem from="1592288710375" duration="8291000" />
       <workItem from="1592446064408" duration="558000" />
+      <workItem from="1592586802585" duration="2718000" />
+      <workItem from="1592622845910" duration="2783000" />
+      <workItem from="1592633853052" duration="156000" />
+      <workItem from="1592634034882" duration="75000" />
+      <workItem from="1592705820937" duration="6519000" />
+      <workItem from="1593147389961" duration="785000" />
     </task>
     <servers />
   </component>
@@ -80,7 +128,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -96,10 +156,15 @@
       <screen x="1920" y="-158" width="1920" height="1040" />
     </state>
     <state x="2660" y="116" key="FileChooserDialogImpl/0.0.1920.1040/1920.-158.1920.1040@1920.-158.1920.1040" timestamp="1590545979100" />
-    <state x="2381" y="6" key="SettingsEditor" timestamp="1592297321780">
-      <screen x="1920" y="-158" width="1920" height="1040" />
+    <state x="346" y="142" key="SettingsEditor" timestamp="1592622931914">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="346" y="142" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1592622931914" />
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.-158.1920.1040@0.0.1920.1040" timestamp="1592297280720" />
     <state x="2381" y="6" key="SettingsEditor/0.0.1920.1040/1920.-158.1920.1040@1920.-158.1920.1040" timestamp="1592297321780" />
+    <state x="869" y="367" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592587027982">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="869" y="367" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1592587027982" />
   </component>
 </project>
