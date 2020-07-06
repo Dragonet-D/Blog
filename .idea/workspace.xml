@@ -117,11 +117,18 @@
       <workItem from="1592634034882" duration="75000" />
       <workItem from="1592705820937" duration="6519000" />
       <workItem from="1593147389961" duration="785000" />
+      <workItem from="1593615399029" duration="246000" />
+      <workItem from="1593691261031" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/test/index.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
