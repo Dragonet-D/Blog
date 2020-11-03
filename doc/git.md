@@ -530,7 +530,18 @@ git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 git fetch -pv
 ```
 
+```shell script
+1、添加分支描述信息
+git config branch.分支名.description ‘分支描述信息’
 
+2、查看分支描述信息
+1）查看单一分支描述
+git config branch.分支名.description
+
+2）查看所有分支描述
+添加git工具git-br：［npm i -g git-br］
+查看所有分支描述：［git br］
+```
 
 
 
